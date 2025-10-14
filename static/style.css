@@ -1,0 +1,158 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0e0e0, #b0b0b0);
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #34495e;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    flex: 1 1 300px;
+    min-width: 280px;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+}
+
+.controls button, 
+.controls select {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #2ecc71;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.controls button:hover:not(:disabled),
+.controls select:hover {
+    background-color: #27ae60;
+}
+
+#simulationModeLabel {
+    font-weight: 600;
+    color: #ecf0f1;
+    margin-left: 12px;
+}
+
+main {
+    flex: 1 1 auto;
+    display: flex;
+    padding: 1rem 2rem;
+    gap: 1.5rem;
+    background: #fff;
+}
+
+#visualArea {
+    flex: 2 1 600px;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: inset 0 0 8px #8888;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#trackCanvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Sidebar / panels */
+#sidePanel {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+h2 {
+    color: #34495e;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 4px;
+}
+
+/* Train List Table */
+#trainList table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#trainList th, #trainList td {
+    text-align: left;
+    padding: 6px 8px;
+    border-bottom: 1px solid #d6d6d6;
+}
+
+#trainList th {
+    background-color: #d0d7e4;
+}
+
+/* Console log */
+#consoleLog {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#logMessages {
+    background-color: #222f3e;
+    color: #dff9fb;
+    font-family: monospace;
+    font-size: 0.8rem;
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 0.8rem;
+    border-radius: 6px;
+    box-shadow: inset 0 0 8px #1b2430;
+}
+
+/* Scrollbar for logs */
+#logMessages::-webkit-scrollbar {
+    width: 8px;
+}
+#logMessages::-webkit-scrollbar-thumb {
+    background-color: #576574;
+    border-radius: 4px;
+}
+

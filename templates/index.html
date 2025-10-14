@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Railway Management System Simulation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Railway Management System Simulation</h1>
+        <div class="controls">
+            <button id="startBtn">Start Simulation</button>
+            <button id="pauseBtn" disabled>Pause</button>
+            <button id="resetBtn">Reset</button>
+            <label for="modeSelect">Controller Mode:</label>
+            <select id="modeSelect">
+                <option value="centralized">Centralized Controller</option>
+                <option value="ordered-locking">Ordered Locking</option>
+            </select>
+            <span id="simulationModeLabel">Simulation Mode: Centralized Controller</span>
+        </div>
+    </header>
+
+    <main>
+        <div id="visualArea">
+            <svg id="trackCanvas" width="600" height="400" viewBox="0 0 600 400" aria-label="Railway Tracks and Trains" role="img">
+                <!-- Tracks -->
+                <line id="trackA" x1="50" y1="350" x2="550" y2="350" stroke="gray" stroke-width="10" />
+                <line id="trackB" x1="50" y1="200" x2="550" y2="200" stroke="gray" stroke-width="10" />
+                <line id="trackC" x1="50" y1="50" x2="550" y2="50" stroke="gray" stroke-width="10" />
+
+                <!-- Track indicators (colored overlays) -->
+                <line id="trackAIndicator" x1="50" y1="350" x2="550" y2="350" stroke="green" stroke-width="6" />
+                <line id="trackBIndicator" x1="50" y1="200" x2="550" y2="200" stroke="green" stroke-width="6" />
+                <line id="trackCIndicator" x1="50" y1="50" x2="550" y2="50" stroke="green" stroke-width="6" />
+
+                <!-- Trains -->
+                <circle id="trainT1" cx="50" cy="350" r="12" fill="#e74c3c" />
+                <rect id="trainT2" x="50" y="190" width="24" height="24" rx="5" ry="5" fill="#3498db" />
+                <circle id="trainT3" cx="50" cy="50" r="12" fill="#f1c40f" />
+            </svg>
+        </div>
+
+        <aside id="sidePanel">
+            <section id="trainList">
+                <h2>Train List</h2>
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Speed</th><th>Track</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>T1</td><td id="speedT1">30 km/h</td><td id="trackT1">Track A</td><td id="statusT1">Running</td></tr>
+                        <tr><td>T2</td><td id="speedT2">25 km/h</td><td id="trackT2">Track B</td><td id="statusT2">Running</td></tr>
+                        <tr><td>T3</td><td id="speedT3">35 km/h</td><td id="trackT3">Track C</td><td id="statusT3">Running</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="metrics">
+                <h2>Metrics</h2>
+                <p>Throughput: <span id="throughput">--</span></p>
+                <p>Waiting Time: <span id="waitingTime">--</span></p>
+                <p>Deadlocks: <span id="deadlocks">--</span></p>
+            </section>
+
+            <section id="consoleLog">
+                <h2>Console Log</h2>
+                <div id="logMessages" tabindex="0" aria-live="polite" aria-atomic="true" role="log" class="logMessages">
+                    <!-- Log messages appended here -->
+                </div>
+            </section>
+        </aside>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
