@@ -1,4 +1,3 @@
-/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -90,7 +89,6 @@ main {
     height: auto;
 }
 
-/* Sidebar / panels */
 #sidePanel {
     flex: 1 1 300px;
     display: flex;
@@ -112,7 +110,6 @@ h2 {
     padding-bottom: 4px;
 }
 
-/* Train List Table */
 #trainList table {
     width: 100%;
     border-collapse: collapse;
@@ -128,7 +125,6 @@ h2 {
     background-color: #d0d7e4;
 }
 
-/* Console log */
 #consoleLog {
     flex-grow: 1;
     display: flex;
@@ -147,7 +143,6 @@ h2 {
     box-shadow: inset 0 0 8px #1b2430;
 }
 
-/* Scrollbar for logs */
 #logMessages::-webkit-scrollbar {
     width: 8px;
 }
@@ -155,4 +150,3 @@ h2 {
     background-color: #576574;
     border-radius: 4px;
 }
-
